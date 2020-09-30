@@ -16,10 +16,8 @@ fn make_selection(message: String) -> bool {
             .read_line(&mut user_raw_input)
             .expect("Failed to read from stdin");
         match user_raw_input.trim().as_ref() {
-            "y" => return true,
-            "Y" => return true,
-            "n" => return false,
-            "N" => return false,
+            "y" | "Y" => return true,
+            "n" | "N" => return false,
             _ => {
                 eprint!("Please answer Yes(y) or no (n) ");
             }
@@ -29,9 +27,7 @@ fn make_selection(message: String) -> bool {
 
 fn validate_coin(coin: u32) -> bool {
     match coin {
-        1 => true,
-        5 => true,
-        10 => true,
+        1 | 5 | 10 => true,
         _ => false,
     }
 }
